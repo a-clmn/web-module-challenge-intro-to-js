@@ -92,9 +92,8 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(humanYears){
-  dogYears = humanYears / 7
-  return dogYears
+function dogYears(humanYears) {
+  return humanYears * 7
 }
 console.log(dogYears(100))
 
@@ -145,30 +144,31 @@ NOTE 2: This is a great time to check the tests to see what it expects, versus w
         So, on this one test, the weight would be 4 pounds, and the age would be 1 years old. It's expecting your function to return a decimal number of 0.2
 */  
 
-function hungryDog(Age, Weight){
-  if (Age >= 1 && Weight <= 5) {
-    return Weight * 0.05
+function hungryDog(weight, age){
+  if (age >= 1 && weight <= 5) {
+    return weight * 0.05;
   }
-  else if (Age >= 1 && Weight >= 6 && Weight <= 10) {
-    return Weight * 0.04
+  else if (age >= 1 && weight >= 6 && weight <= 10) {
+    return weight * 0.04;
   }
-  else if (Age >= 1 && Weight >= 11 && Weight <= 15) {
-    return Weight * 0.03
+  else if (age >= 1 && weight >= 11 && weight <= 15) {
+    return weight * 0.03;
   }
-  else if (Age >= 1 && Weight >= 15) {
-    return Weight * 0.02
+  else if (age >= 1 && weight >= 15) {
+    return weight * 0.02;
   }
 
-  else if (Age >= 0.167 && Age <= 0.333) {
-    return Weight * 0.10
+  else if (age <= 0.33) {
+    return weight * 0.10;
   }
-  else if (Age >= 0.333 && Age <= 0.583) {
-    return Weight * 0.05
+  else if (age >= 0.33 && age < 0.58) {
+    return weight * 0.05;
   }
-  else if (Age >= 0.583 && Age <= 1.0)
-  return Weight * 0.04
+  else if (age >= 0.58) {
+  return weight * 0.04;
+  }
 }
-console.log(hungryDog(1, 15))
+console.log("hungryDog", hungryDog(4, 0.75))
 
 
 
@@ -193,11 +193,37 @@ Use the game function below to do the following:
 RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
 */
 
-function game(user, computer){
-  /*add your code here*/
+let computer = Math.random() * 100;
+
+if (computer <= 33) {
+  computer = "rock";
+}
+else if (computer > 33 && computer <= 67) {
+  computer = "paper";
+}
+else {
+  computer = "scissors";
 }
 
+function game(user, computer){
+  if (user === computer){
+    return "it's a tie"
+  }
+  else if (user === "rock" && computer === "scissors") {
+    return "you win!"
+  }
+  else if (user === "paper" && computer === "rock") {
+    return "you win!"
+  }
+  else if (user === "scissors"  && computer === "paper") {
+    return "you win!"
+  }
+  else {
+    return "you lose!"
+  }
+}
 
+console.log(game("rock", computer))
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -210,9 +236,10 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(km){
+  return km * 0.621371
 }
+console.log(miles(100))
 
 
 
@@ -224,10 +251,10 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm / 30.48
 }
-
+console.log(feet(1))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -244,11 +271,12 @@ Using the annoyingSong function below do the following:
 4. Each time the annoyingSong is run from this loop, it should console.log the string that was returned. 
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(start){
+  for (let i = start; i > 0; i--) {
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`
+  }
 }
-
-
+console.log(annoyingSong(5))
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 //Grade Calculator
@@ -264,10 +292,25 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score) {
+if (score >= 90) {
+  return "you got an A"
+}
+if (score <= 89 && score >= 80) {
+  return "you got a B"
+}
+if (score <=79 && score >= 70) {
+  return "you got a C"
+}
+if (score <=69 && score >= 60) {
+  return "you got a D"
+}
+if (score <= 60) {
+  return "you got an F"
+}
 }
 
+console.log(grade(85))
 
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
