@@ -20,12 +20,12 @@ Do the following:
    HINT: no function required
 */
 
-const votingAge = 18
+const votingAge = 18;
 if (votingAge >= 18) {
-  console.log(true)
+  console.log(true);
 }
 else {
-  console.log(false)
+  console.log(false);
 }
 
 
@@ -145,9 +145,30 @@ NOTE 2: This is a great time to check the tests to see what it expects, versus w
         So, on this one test, the weight would be 4 pounds, and the age would be 1 years old. It's expecting your function to return a decimal number of 0.2
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(Age, Weight){
+  if (Age >= 1 && Weight <= 5) {
+    return Weight * 0.05
+  }
+  else if (Age >= 1 && Weight >= 6 && Weight <= 10) {
+    return Weight * 0.04
+  }
+  else if (Age >= 1 && Weight >= 11 && Weight <= 15) {
+    return Weight * 0.03
+  }
+  else if (Age >= 1 && Weight >= 15) {
+    return Weight * 0.02
+  }
+
+  else if (Age >= 0.167 && Age <= 0.333) {
+    return Weight * 0.10
+  }
+  else if (Age >= 0.333 && Age <= 0.583) {
+    return Weight * 0.05
+  }
+  else if (Age >= 0.583 && Age <= 1.0)
+  return Weight * 0.04
 }
+console.log(hungryDog(1, 15))
 
 
 
